@@ -1,0 +1,557 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
+<link rel="manifest" href="../static/images/site.webmanifest">
+<title>GRAFFITI</title>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- Lightbox CSS -->
+  <link rel="stylesheet" href="{% static 'lightbox.min.css'%}?v=2" />
+
+  <link rel="stylesheet" href="{% static 'Graffiti.css' %}?v=33">
+
+
+</head>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+
+
+<body class="bg-gray-900 text-white font-sans">
+ 
+
+
+  <!-- Loading overlay with text -->
+<div id="loading" class="fixed top-0 left-0 w-full h-full  items-center justify-center bg-gray-900 bg-opacity-75 flex" style="display: none;">
+  <div class="loader-text text-white">Graffiti is receiving your message...</div>
+</div>
+     <!-- Responsive Side Navigation Bar -->
+<nav class="navbar bg-white fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="letter-spacing: .3rem;" href="{% url 'Graffiti:Graffiti' %}">GRAFFITI</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end bg-gray-900 text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-size: 40px; letter-spacing: .2rem;">Graffiti</h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close" style="font-size: 25px;">&times;</button>
+      </div>
+      <div class="offcanvas-body text-white">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active text-white"  aria-current="page" href="{% url 'Graffiti:Graffiti' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#team">My Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#mv">Our Mission & Vision </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#gallery">My Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'Graffiti:JoinCommunity' %}">Join Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#contact">Contact Us</a>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Email" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar-nav .nav-item:hover .nav-link {
+    border-bottom: 2px solid white; /* Add your preferred border style */
+  }
+</style>
+
+
+
+
+    <!-- Split Hero Section -->
+  <section id="hero">
+    <div class="flex">
+  
+        <!-- Left side (text) -->
+        <div id="ls" class="w-1/2 p-8 ">
+          <h1 class="text-4xl md:text-6xl font-semiboldd mb-3 text-white" style="border-bottom: 1px solid white;">Bringing Art to Life</h1>
+          <p class="text-lg md:text-xl mb-9 font-sans">
+            Ever wondered about the magic when Art and Tech unite? Well, brace yourself for something extraordinary! Imagine the heartfelt strokes of art blending seamlessly with cutting-edge technology. Get ready for a journey where creativity meets innovation in a unique way. Join us for an extraordinary experience!   
+            </p>
+          <a href="{% url 'Graffiti:JoinCommunity' %}" class="bg-white text-gray-900 py-2 px-4 rounded-full">Join Community</a>
+        </div>
+
+
+    
+        <!-- Right side (image) -->
+        <div id="ls" class="w-1/2">
+          <img src="../static/images/woman-s-face-is-made-up-geometric-shapes-cyberpunk-colorful-fractalism-cubism_834088-1.avif" alt="Hero Image" class="w-full h-screen object-cover">
+        </div>
+    
+      </div>
+  </section>
+  
+  <!--About Section-->
+  <section id="about">
+    <div class="about container">
+      <div class="about-body">
+        <div class="about-img border-gray-900">
+          <img src="../static/images/IMG-20231019-WA0340.jpg" alt="">
+        </div>
+        <div class="about-text">
+          <h1 class="text-gray-900">Who Am I?</h1>
+          <div class="about-img2 border-gray-900">
+            <img src="../static/images/IMG-20231019-WA0340.jpg" alt="">
+          </div>
+          <p class="text-gray-900">Greetings, I'm Precious Okon, also known as Graffiti. Currently, I'm pursuing a degree in Computer Engineering at the University of Uyo in Akwa Ibom State, Nigeria. You might be wondering, "Why would an artist study Computer Engineering?" Well, let me share that I deliberately chose this path because I am both an artist and a tech enthusiast. The fascinating intersection of art and technology has always captivated me, and I've been working on merging these two passions to create something meaningful.
+
+            I opted for computer engineering to gain technical proficiency while leveraging my existing artistic skills. If you're interested in joining me on this journey of bringing art to life, I invite you to become part of our community. Whether you're a tech enthusiast or an artist, your collaboration is welcome. Together, let's combine our skills and creativity to achieve the seemingly impossible.
+            
+            For those curious about the synergy between tech and art, or if you want a visual representation of what I'm describing, click the "Watch Video" button below. Additionally, you can view my artworks in the gallery section. Explore my designs; you might find something that resonates with you. I also provide art services such as wall art painting, and I assure you that my designs will leave a lasting impression.</p>
+            <div class="about-btn">
+              <a href="#contact" class="bg-gray-900 text-white py-2 px-4 rounded-full hover">Hire Me</a>
+              <a href="https://www.instagram.com/reel/CsPAMpdtwiX/?utm_source=ig_web_copy_link" class="bg-gray-900 text-white py-2 px-4 rounded-full">Watch Video</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+              <!--Team Section-->
+        <section id="team">
+          <div class="team container">
+            <div class="team-intro">
+              <h1 class="font-sans">My Team</h1>
+              <p class="font-sans">
+                To make this dream a reality, I've got an amazing crew by my side – a bunch of dedicated souls who are not just colleagues but friends on this artistic adventure. We're not your typical team; we're a mix of passion, skills, and a shared dream of bringing art to life. Our commitment goes beyond work; it's about weaving together unique talents, infectious excitement, and a deep belief in the magic of creative expression. So, let's embark on this thrilling journey together, where our collective love for art and tech creates a space for something truly extraordinary. Join us, and let's make the magic happen!</p>
+            </div>
+            <div class="team-items font-mono">
+             <div class="team-item">
+              <img style="width: 300px; border-radius: 20px; padding-bottom: 10px;" src="../static/images/IMG-20231019-WA0340.jpg" alt="">
+              <h1>Precious Okon (Graffiti)</h1>
+              <h2>Tech Artist / Founder</h2>
+              <p>
+                I love blending creativity with tech in crafting and designing. Each piece is a personal journey, aiming for a human, tech-infused connection</p>
+                <div class="icons">
+                  <a href="https://wa.link/80gvct"> <img  src="../static/images/icons8-whatsapp-50.png" alt=""></a>
+                  <a href="https://www.instagram.com/her_name_is_preshhhh/"><img src="../static/images/icons8-instagram-50.png" alt=""></a>
+                  <a href="https://www.tiktok.com/@precious_graffitiartist">                  <img src="../static/images/icons8-tiktok-50.png" alt="">
+                  </div></a>
+             </div>
+             <div class="team-item">
+              <img style="width: 300px; border-radius: 20px; padding-bottom: 10px;" src="../static/images/IMG-20230519-WA0084.jpg" alt="">
+              <h1>David Etuk</h1>
+              <h2>UI/UX Designer</h2>
+              <p>By understanding user behavior and preferences, I  contribute to the artistic side of technology by designing interfaces that resonate with users emotionally and provide a delightful experience.</p>
+              <div class="icons">
+                <a href="ttps://wa.link/0sjmff"><img src="../static/images/icons8-whatsapp-50.png" alt=""></a>
+                <a href="https://instagram.com/cfcdave_?utm_source=qr&igshid=OWM2ZWI5NDFkNA=="> <img src="../static/images/icons8-instagram-50.png" alt=""></a>
+                <a href="https://x.com/DaveCFC_?t=gKpAPWPkk5FKvjlQvMvpgQ&s=08"><img src="../static/images/icons8-twitter-circled-50.png" alt=""></a>
+              </div>
+             </div>
+             <div class="team-item">
+              <img style="width: 300px; border-radius: 20px; padding-bottom: 10px;" src="../static/images/cfdcadb0152d45e29da54f2e9de2d6e3.jpg" alt="">
+              <h1>Divine Effiong</h1>
+              <h2>Frontend Developer</h2>
+              <p>I contribute to the artistic side by creating interactive and dynamic user interfaces that engage users through visually appealing animations, transitions, and responsive design.</p>
+              <div class="icons">
+                <a href="https://wa.link/b8bt1d"> <img src="../static/images/icons8-whatsapp-50.png" alt=""></a>
+                <a href=""><img src="../static/images/icons8-instagram-50.png" alt=""></a>
+               <a href=""><img src="../static/images/icons8-tiktok-50.png" alt=""></a>
+              </div>
+             </div>
+             <div class="team-item">
+              <img style="width: 300px; border-radius: 20px; padding-bottom: 10px;" src="../static/images/270040282_600047117753875_7703286078832375971_n__2_-removebg-preview.png" alt="">
+              <h1>Victory Sakey</h1>
+              <h2>Backend Developer</h2>
+              <p>I contribute to the artistic world of technology by securing databases and ensuring the integrity of data, which is essential for applications relying on artistic content.</p>
+              <div class="icons">
+                <a href="https://wa.link/k6wbf3">  <img src="../static/images/icons8-whatsapp-50.png" alt=""></a>
+                <a href="https://www.linkedin.com/in/victory-sakey-a6602521a/"><img src="../static/images/icons8-linked-in-50.png" alt=""></a> 
+                <a href="https://www.instagram.com/victorysakey/"><img src="../static/images/icons8-instagram-50.png" alt=""></a>
+              </div>
+             </div>
+             <div class="team-item">
+              <img style="width: 300px; border-radius: 20px; padding-bottom: 10px;" src="../static/images/IMG-20231102-WA0066.jpg" alt="">
+              <h1>Brown Chibudom</h1>
+              <h2>Ethical Hacker</h2>
+              <p>By securing systems and data, I contribute to creating a trustworthy environment for users to engage with artistic content without concerns about privacy or security.</p>
+              <div class="icons">
+                <a href="https://wa.link/j5lnub"> <img src="../static/images/icons8-whatsapp-50.png" alt=""></a>
+                <a href="https://www.facebook.com/profile.php?id=100080387133202"><img src="../static/images/icons8-facebook-50.png" alt=""></a>
+                <a href=""><img src="../static/images/icons8-discord-50.png" alt=""></a>
+              </div>
+             </div>
+             <div class="team-item">
+              <img style="width: 450px;  border-radius: 20px; padding-bottom: 10px;" src="../static/images/415352592_7953499488010284_224335227858115839_n.jpg" alt="">
+              <h1>Vanessa Ijeoma</h1>
+              <h2>Game Developer</h2>
+              <p>I contribute to the artistic aspect of technology by creating visually stunning worlds. I integrate technology to bring art, storytelling and interactivity together. </p>
+              <div class="icons">
+                <a href="https://wa.link/ak0v0a"><img src="../static/images/icons8-whatsapp-50.png" alt=""></a>
+               <a href="https://www.instagram.com/vhanvee/"><img src="../static/images/icons8-instagram-50.png" alt=""></a>
+                <a href=""><img src="../static/images/icons8-tiktok-50.png" alt=""></a>
+              </div>
+             </div>
+            </div>
+          </div>
+
+        </section>  
+
+ <!--Mission/Vision Section-->
+  <section id="mv">
+    <div class="mv container">
+       <div class="mv-intro">
+        <h1 class="font-sans">Mission & Vision </h1>
+        <p class="font-mono">Join us on a creative adventure where artists and tech enthusiasts come together, inspired to break boundaries and unlock new dimensions of limitless creativity. Picture a future where art and technology seamlessly intertwine, forming a vibrant community that turns each creation into a unique story of potential. With shared passion, we're on a journey to make the extraordinary happen, celebrating both the human spirit and technological innovation.</p>
+       </div>
+       <div class="mv-items">
+        <div class="mv-item">
+         <div class="mv-info">
+          <img src="../static/images/icons8-creative-48.png" alt="">
+          <h1 class="font-sans">Igniting Creativity</h1>
+        </div>
+        <p>At the heart of what we do is a passion for blending the enchantment of art with the wonders of technology. We're not just breaking down boundaries; we're creating a space where artists and tech enthusiasts come together, fueled by a shared desire to inspire and challenge each other. Our mission is to unlock new dimensions of creativity, where the dance between art and tech sets the stage for extraordinary expressions.</p>
+         </div>
+         <div class="mv-item">
+          <div class="mv-info">
+           <img src="../static/images/icons8-group-of-people-48.png" alt="">
+           <h1 class="font-sans">Evolving Perspecitves</h1>
+         </div>
+         <p>Envision a future where art and technology seamlessly intertwine, giving rise to a lively community where creativity knows no bounds. Our vision is to be the catalyst for this evolution, nurturing a family where artists and tech enthusiasts converge. Beyond breaking barriers, we strive to turn each creation into a narrative of limitless potential. Join us on this journey where shared passion converges with boundless possibilities.</p>
+          </div>
+          <!--
+          <div class="mv-item">
+            <div class="mv-info">
+             <img src="../static/images/icons8-motivation-48.png" alt="">
+             <h1 class="font-sans">Unleashing Potential</h1>
+            </div>
+             <p>Embark on an exciting adventure with us, where joint enthusiasm meets endless opportunities, all aimed at creating something truly remarkable in the realm of art and technology. Our vision extends beyond the ordinary, forging a tech-infused artistic experience that uniquely connects with people. Together, we aspire to make the extraordinary happen, weaving a narrative that resonates with the human spirit and technological innovation.</p>
+            </div>-->
+       </div>
+    </div>
+  </section>
+  
+  <!--Gallery Section-->
+  <section id="gallery">
+    <div class="gallery-intro container">
+      <h1 class="font-sans">My Gallery</h1>
+      <h2 class="font-mono">Check Out my recent Artworks!</h2>
+    </div>
+    <div class="grid-gallery">
+      <div class="grid-item">
+        <a href="../static/images/2013+12+JIMI+Hendrix,+190x190cm,+Acrylic+on+Canvas.jpg" data-lightbox="gridImage">
+          <img src="../static/images/2013+12+JIMI+Hendrix,+190x190cm,+Acrylic+on+Canvas.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/410143212_703470311790773_166749818861429875_n.jpg" data-lightbox="gridImage">
+          <img src="../static/images/410143212_703470311790773_166749818861429875_n.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/download.jpg" data-lightbox="gridImage">
+          <img src="../static/images/download.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/410251174_917853743062618_2710683798070653537_n.jpg" data-lightbox="gridImage">
+          <img src="../static/images/410251174_917853743062618_2710683798070653537_n.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0336.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0336.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0346.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0346.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0348.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0348.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0349.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0349.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0350.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0350.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0351.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0351.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0352.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0352.jpg" />
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="../static/images/IMG-20231019-WA0353.jpg" data-lightbox="gridImage">
+          <img src="../static/images/IMG-20231019-WA0353.jpg" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+<!--Contact Section-->
+<section id="contact">
+  <div class="contact container">
+    <div class="contact-body">
+      <div class="contact-info text-gray-900">
+        <h1>Let's Connect!</h1>
+        <p>We're eager to connect with you! Whether you're a fan of art, a tech enthusiast, or simply someone who marvels at the enchanting fusion of creativity and technology, we'd love to hear from you. Drop us a message using the form, and let's kick off a conversation.</p>
+        <div class="contact-img flex center" style="align-items: center;">
+          <!-- Adding a class to the image for styling -->
+          <img src="../static/images/spongebob_squarepants_3d_spongebob_shopee_png_by_polexlim_dfia09y-fullview.png" alt=""  class="moving-image">
+        </div>
+      </div>
+
+      <!-- Your contact form HTML goes here -->
+      <div class="contact-form">     
+  <!-- Container to display the message -->
+  <div id="message-container" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+  </div>
+        <form id="myForm" method="post" action="" data-submit-url="./Graffiti/views.py" class=" mx-auto bg-gray-900 p-8 mt-8 rounded-md border border-gray-600">
+          {% csrf_token %}
+          <div class="form-layout">
+            <div class="form flex flex-col">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label_tag }}</label>
+              <div class="name text-white">{{ form.name }}</div>
+            </div>
+            <div class="form flex flex-col">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label_tag }}</label>
+              <div class="email text-white">{{ form.email }}</div>
+            </div>
+            <div class="form flex flex-col">
+              <label for="{{ form.message.id_for_label }}">{{ form.message.label_tag }}</label>
+              <div class="message text-white">{{ form.message }}</div>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <input type="submit" value="Submit" class="w-full bg-blue-700 text-white p-2 rounded-md mt-4">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Adding a style block at the end of your HTML -->
+<style>
+  /* Style for the moving image with a looping motion */
+  .moving-image {
+    width: 400px; /* Set the initial width */
+    animation: moveLeftRight 4s linear infinite; /* Animation properties */
+  }
+
+  /* Keyframes for the animation */
+  @keyframes moveLeftRight {
+    0%, 100% {
+      transform: translateX(0); /* Reset position at the start and end of the animation */
+    }
+    50% {
+      transform: translateX(100px); /* Adjust the translation in the middle of the animation */
+    }
+  }
+</style>
+
+
+
+
+<!-- Adding a style block at the end of your HTML -->
+<style>
+  /* Style for the loading overlay */
+  #loading {
+    z-index: 9999;
+  }
+
+  /* Style for the loading text */
+  .loader-text {
+    font-size: 20px;
+    letter-spacing: .2rem;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  /* Keyframes for the pulse animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+
+<section id="news-letter" style="padding-top: 20px; background-color: whitesmoke;">
+  <div class="news-letter  bg-gray-900" style="border-radius: 50px; margin: 20px; align-items: center; justify-content: center; margin-top: 20px;">
+    <div class="nl-body flex justify-center" style="align-items: center;">
+      <div class="nl-info" style="padding: 20px;">
+         <h4>Sign up for Graffiti's New's Letter.</h4>
+        <p>Get all the latest news from Graffiti, special offers and more!</p>
+        
+        <div id="subscribeForm" class="bg-white" style="padding: 10px;  border-radius: 20px;">
+              <input type="email" class="subscribe" placeholder="Your Email" style="width: 300px; outline: gray; color: black;"> 
+              <h2 class="inline-flex align-middle justify-center text-white text-center bg-gray-900 border-0 py-2 px-6 focus:outline-none hover:bg-gray-800 rounded text-lg cursor-pointer" style="width: 100%; font-weight: 800; margin-top: 5px;" onclick="openReply()">
+                  Subscribe
+              </h2>      
+         
+          <div id="subscribe-container">
+            <h2 class="flex flex-row text-gray-900"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="30" viewBox="0 0 30 30">
+            <path fill="#9ee36b" d="M24,5.5L15,2L6,5.5L2,15l4,9.5l9,3.5l9-3.5l4-9.5L24,5.5z M19,23.5h-8l-5-5V11l5-5h8l5,5v7.5L19,23.5	z"></path><polygon fill="#9ee36b" points="14,16 11,13 9,15 14,20 16,18 21,13 19,11"></polygon><polygon fill="#65c543" points="2,15 6,18.5 6,24.5"></polygon><polygon fill="#8ad752" points="2,15 6,11 6,18.5"></polygon><polygon fill="#51b333" points="6,24.5 11,23.5 15,28"></polygon><polygon fill="#51b333" points="24,18.5 28,15 24,24.5"></polygon><polygon fill="#8ad752" points="24,11 24,5.5 28,15"></polygon><polygon fill="#9ee36b" points="2,15 6,5.5 6,11"></polygon><polygon fill="#51b333" points="15,28 19,23.5 24,24.5"></polygon><polygon fill="#8ad752" points="19,6 15,2 24,5.5"></polygon><polygon fill="#9ee36b" points="6,5.5 15,2 11,6"></polygon><polygon fill="#65c543" points="11,23.5 19,23.5 15,28"></polygon><polygon fill="#65c543" points="19,6 24,5.5 24,11"></polygon><polygon fill="#65c543" points="15,2 19,6 11,6"></polygon><polygon fill="#65c543" points="24,18.5 19,23.5 24,24.5"></polygon><polygon fill="#65c543" points="24,11 24,18.5 28,15"></polygon><polygon fill="#8ad752" points="11,6 6,11 6,5.5"></polygon><polygon fill="#8ad752" points="6,18.5 6,24.5 11,23.5"></polygon><polygon fill="#65c543" points="11,13 16,18 9,15"></polygon><polygon fill="#51b333" points="14,20 16,18 9,15"></polygon><polygon fill="#9ee36b" points="14,16 19,11 16,18"></polygon><polygon fill="#51b333" points="19,11 21,13 16,18"></polygon>
+            </svg> Your submission was successful.</h2></div>
+          </div>
+      </div>
+
+      <div class="nl-img">
+        <img src="../static/images/410743074_674644424818296_5016700704292540669_n.jpg" alt="" style=" padding: 20px; border-radius: 50px; ">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ 
+<footer class="text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <img src="../static/images/Blue_Company_With_Letter_G_Logo-removebg-preview.png" alt="" style="width: 200px;">
+      <span class="ml-3 text-xl">Graffiti>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Graffiti  —
+      <a href="https://www.instagram.com/her_name_is_preshhhh/" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@preciousokon</a>
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a class="text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+    </span>
+  </div>
+</footer>
+ 
+
+
+</body>
+
+  <script>
+    $(document).ready(function() {
+       $('#myForm').submit(function(e) {
+          // Prevent the default form submission
+          e.preventDefault();
+ 
+          // Display loading effect
+          $('#loading').show();
+ 
+          // Serialize the form data
+          var formData = $(this).serialize();
+          var submitUrl = $(this).attr('action');  // Use action attribute to get the submit URL
+ 
+          // Send the form data to the server using AJAX
+          $.ajax({
+             type: 'POST',
+             url: submitUrl,
+             data: formData,
+             success: function(response) {
+                // Handle the server response here (if needed)
+                console.log(response.message);
+ 
+                // Hide loading effect
+                $('#loading').hide();
+                
+              
+                $('#message-container').show();
+                $('#message-container').text(response.message);
+
+                setTimeout(function() {
+                    $('#message-container').fadeOut('slow');
+                }, 5000);
+
+             },
+             error: function(error) {
+                // Handle errors here (if needed)
+                console.error(error);
+ 
+                // Hide loading effect in case of an error
+                $('#loading').hide();
+             }
+          });
+       });
+    });
+ </script>
+
+ 
+   
+   <!-- Lightbox JS -->
+   <script src="{% static 'lightbox.min.js'%}?v=3"></script>
+
+<script src="{% static 'Graffiti.js' %}?v=9"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    // Add click event listener to close the sidebar when a link is clicked
+    var sidebarLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    sidebarLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        // Close the offcanvas using Bootstrap's built-in function
+        $('#offcanvasNavbar').offcanvas('hide');
+      });
+    });
+  });
+</script>
+      
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+    <title>Congratulations {{ success }}!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background-color: white;">
+    <!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full">
+  <body class="h-full">
+  ```
+-->
+<main class="grid min-h-full place-items-center py-24 sm:py-32 lg:px-8 ">
+    <div class="text-center">
+        <div class="img" style="align-items: center; justify-content: center; display: flex;">
+            <img src="{% static 'images/200w.gif' %}" alt="" style="align-items: center; justify-content: center; display: flex;">
+        </div>
+
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Congratulations {{ success }}! </h1>
+      <p class="mt-6 text-base leading-7 text-gray-600" style="font-size: 20px; padding-left: 30px; padding-right: 30px;">You've successfully joined our community, {{ success }}. Thank you for choosing to be a part of us! We've sent you an email for more details.</p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="{% url 'Graffiti:Graffiti' %}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Go back home</a>
+        <a href="/Graffiti/#contact" class="text-sm font-semibold text-gray-900">Contact support <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </main>
+  
+</body>
+</html>
