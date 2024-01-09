@@ -4,7 +4,7 @@ from django.db import models
 class ContactFormSubmission(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    message = models.TextField(null=True, blank=True)
+    message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class JoinCommunitySubmission(models.Model):

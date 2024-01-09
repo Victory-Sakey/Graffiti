@@ -17,7 +17,8 @@ def Graffiti(request):
             
             person_email = form.cleaned_data['email']
             person_name = form.cleaned_data['name']
-            person = ContactFormSubmission.objects.create(email=person_email, name=person_name)
+            person_message = form.cleaned_data['message']
+            person = ContactFormSubmission.objects.create(email=person_email, name=person_name, message=person_message)
             person.save()
             subject = 'Thank You for Contacting Us! (From Graffiti)'
             message = f"""
