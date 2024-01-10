@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Current working directory: $(pwd)"
+ls -al  # Print the content of the current directory
+
 echo "Installing dependencies..."
 pip install -r requirements.txt
 
