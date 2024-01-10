@@ -64,7 +64,6 @@ wheels/
 *.egg-info/ 
 .installed.cfg 
 *.egg 
-*.manifest 
 *.spec 
 
 # Installer logs 
