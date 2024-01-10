@@ -16,7 +16,7 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
+      "src": "Graffiti/static/(.*)",
       "dest": "/static/$1"
     },
     {
