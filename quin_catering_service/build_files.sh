@@ -1,2 +1,3 @@
+#!/usr/bin/env python3.12
 pip install -r requirements.txt
 python3.12 manage.py collectstatic 
