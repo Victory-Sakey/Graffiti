@@ -23,6 +23,37 @@
       "src": "/(.*)",
       "dest": "quin_catering_service/wsgi.py"
     }
-  ]
+  ],
+  "compress": {
+    "mime": [
+      "application/json",
+      "application/x-web-app-manifest+json",
+      "application/geo+json",
+      "application/manifest+json",
+      "application/ld+json",
+      "application/atom+xml",
+      "application/rss+xml",
+      "application/xhtml+xml",
+      "application/xml",
+      "application/rdf+xml",
+      "application/javascript",
+      "application/vnd.ms-fontobject",
+      "application/wasm",
+      "font/otf",
+      "image/svg+xml",
+      "image/bmp",
+      "text/cache-manifest",
+      "text/css",
+      "text/dns",
+      "text/javascript",
+      "text/plain",
+      "text/markdown",
+      "text/vcard",
+      "text/calendar",
+      "text/vnd.rim.location.xloc",
+      "text/vtt",
+      "text/x-component",
+      "text/x-cross-domain-policy"
+    ]
+  }
 }
-
