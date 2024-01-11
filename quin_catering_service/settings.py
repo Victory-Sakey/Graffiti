@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'quin_catering_service.urls'
@@ -149,8 +150,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles_build')
 
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
+WHITENOISE_MIMETYPES = {
+    '.xsl': 'application/xml'
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
