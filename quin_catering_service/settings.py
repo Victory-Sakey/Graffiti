@@ -19,14 +19,10 @@ EMAIL_PORT = EMAIL_PORT
 EMAIL_USE_TLS = EMAIL_USE_TLS
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-import mimetypes
-
-# Enable the use of the mimetypes module to detect MIME types for static files
-mimetypes.init()
 
 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 import os
@@ -49,6 +45,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-+(6t(q!oh0b7&5-d4z^#mc9_u_lysk2eazzqnhe205zn!4i9$h'
 
+WHITENOISE_AUTOREFRESH = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -158,8 +155,10 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles_build')
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
