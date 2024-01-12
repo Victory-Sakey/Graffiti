@@ -1,0 +1,1 @@
+web: gunicorn quin_catering_service.wsgi --log-file - 
